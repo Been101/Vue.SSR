@@ -16,7 +16,7 @@
 启动项目
 
 npm i
-npm run build --project=01  or npm run build 01
+npm run build 01    // npm run build projectName
 ```
 ## Vue.SSR
 ### 简单的浏览器渲染 vue 项目

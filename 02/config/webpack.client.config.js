@@ -5,7 +5,7 @@ const base = require('./webpack.base.config')
 
 module.exports = merge(base, {
     entry: {
-        client: path.resolve(__dirname, '../index.js')
+        client: path.resolve(__dirname, '../entry-client.js')
     },
     plugins: [
         new HtmlWebpackPlugin({

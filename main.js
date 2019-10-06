@@ -2,25 +2,30 @@ const { exec } = require('child_process')
 
 const argv = process.argv
 const project = argv[2]
-const side = argv[3]
 const projectMap = {
     '01': 'webpack --config ./01/webpack.config.js',
-    'ssr': `webpack --config ./${project}/config/webpack.${side}.config.js`,
+    'ssr': `webpack --config ./${project}/config/webpack.client.config.js`,
 }
 
-let cmd
 if(project === '01'){
-    cmd = projectMap[project]
+    const cmd = projectMap[project]
+    execCmd(cmd)
 } else {
-    cmd = projectMap['ssr']
+    const clientCmd = `webpack --config ./${project}/config/webpack.client.config.js`
+    const serverCmd = `webpack --config ./${project}/config/webpack.server.config.js`
+    execCmd(clientCmd)
+    execCmd(serverCmd)
 }
 
-console.log('building...')
-exec(cmd, (err, stdout, stderr) => {
-    if(err){
-        console.log(err, stderr)
-    }else {
-        console.log(stdout)
-        console.log('build succcess!')
-    }
-})
+function execCmd(cmd) {
+    console.log(`building... ${cmd}`)
+    exec(cmd, (err, stdout, stderr) => {
+        if(err){
+            console.log(err, stderr)
+        }else {
+            console.log(stdout)
+            console.log(`build ${cmd} succcess!`)
+        }
+    })
+
+}
