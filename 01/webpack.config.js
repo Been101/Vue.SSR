@@ -28,7 +28,7 @@ module.exports = {
     plugins:[
         new VueLoaderPlugin(),
         new HtmlWebpackPlugin({
-            template: '../index.html'
+            template: path.resolve(__dirname, '../index.html'),
         }),
         new ExtractTextPlugin("styles.css")
     ]

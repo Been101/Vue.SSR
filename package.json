@@ -4,8 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "node main.js",
-    "s1": "webpack --config ./01/webpack.config.js"
+    "build": "node main.js"
   },
   "dependencies": {
     "koa": "^2.5.3",
