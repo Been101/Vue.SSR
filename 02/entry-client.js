@@ -1,4 +1,5 @@
 import { createApp } from './app.js'
 
-const app = createApp()
+const { app } = createApp()
+
 app.$mount('#app')

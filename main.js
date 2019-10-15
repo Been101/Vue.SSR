@@ -7,7 +7,7 @@ const projectMap = {
     'ssr': `webpack --config ./${project}/config/webpack.client.config.js`,
 }
 
-if(project === '01'){
+if (project === '01') {
     const cmd = projectMap[project]
     execCmd(cmd)
 } else {
@@ -20,9 +20,9 @@ if(project === '01'){
 function execCmd(cmd) {
     console.log(`building... ${cmd}`)
     exec(cmd, (err, stdout, stderr) => {
-        if(err){
+        if (err) {
             console.log(err, stderr)
-        }else {
+        } else {
             console.log(stdout)
             console.log(`build ${cmd} succcess!`)
         }
