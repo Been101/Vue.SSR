@@ -5,8 +5,16 @@
 </template>
 
 <script>
-function fetchData(rootData) {
-  rootData.bar.name = "fetch data from db";
+const rootData = {
+  bar: {
+    name: ""
+  }
+};
+function fetchData() {
+  return new Promise((resolve, reject) => {
+    rootData.bar.name = "fetch data from db";
+    resolve("fetch data from db");
+  });
 }
 export default {
   asyncData: fetchData,
@@ -14,11 +22,13 @@ export default {
     return {};
   },
   mounted() {
-    fetchData(this.$root.rootData);
+    fetchData().then(res => {
+      rootData.bar.name = res;
+    });
   },
   computed: {
     msg() {
-      return this.$root.rootData.bar.name;
+      return rootData.bar.name;
     }
   }
 };
