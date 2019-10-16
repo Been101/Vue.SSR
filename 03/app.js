@@ -3,7 +3,7 @@ import App from './App.vue'
 import { createStore } from './store';
 
 export function createApp() {
-    const rootData = createStore
+    const rootData = createStore()
     const app = new Vue({
         data() {
             return rootData
@@ -11,5 +11,5 @@ export function createApp() {
         render: h => h(App)
     })
 
-    return { app, rootData }
+    return { app, rootData, App }
 }
