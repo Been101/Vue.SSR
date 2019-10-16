@@ -15,19 +15,21 @@ const renderer = require('vue-server-renderer').createBundleRenderer(bundle, {
 });
 
 // 后端Server
-backendRouter.get('/index', (ctx, next) => {
+backendRouter.get('/index', async (ctx, next) => {
   // 这里用 renderToString 的 promise 返回的 html 有问题，没有样式
-  renderer.renderToString((err, html) => {
-    if (err) {
-      console.error(err);
-      ctx.status = 500;
-      ctx.body = 'Server internal error';
-    } else {
-      console.log(html);
-      ctx.status = 200;
-      ctx.body = html;
-    }
-  });
+  const html = await new Promise((resolve, reject) => {
+    renderer.renderToString((err, html) => {
+      if (err) {
+        reject(err)
+      } else {
+        resolve(html)
+      }
+    });
+  })
+  console.log(html, '-------------')
+  ctx.type = 'html'
+  ctx.status = 200
+  ctx.body = html
 });
 
 backendApp.use(serve(path.resolve(__dirname, `./${project}/dist`)));
