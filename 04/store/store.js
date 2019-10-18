@@ -36,3 +36,7 @@ export function createStore() {
 
   return store
 }
+
+export default createStore;
+
+typeof window
