@@ -214,7 +214,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _nod
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _app_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./app.js */ \"./02/app.js\");\n\nconst app = Object(_app_js__WEBPACK_IMPORTED_MODULE_0__[\"createApp\"])();\napp.$mount('#app');\n\n//# sourceURL=webpack:///./02/entry-client.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _app_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./app.js */ \"./02/app.js\");\n\nconst {\n  app\n} = Object(_app_js__WEBPACK_IMPORTED_MODULE_0__[\"createApp\"])();\napp.$mount('#app');\n\n//# sourceURL=webpack:///./02/entry-client.js?");
 
 /***/ }),
 
