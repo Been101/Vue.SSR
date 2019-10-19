@@ -18,6 +18,3 @@
 npm i
 npm run build 01    // npm run build projectName
 ```
-## Vue.SSR
-### 简单的浏览器渲染 vue 项目
-- webpack + vue
