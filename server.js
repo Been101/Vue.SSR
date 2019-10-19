@@ -18,17 +18,7 @@ const renderer = vueServerRenderer.createBundleRenderer(bundle, {
 // 后端Server
 backendRouter.get('/index', async (ctx, next) => {
   // 这里用 renderToString 的 promise 返回的 html 有问题，没有样式
-  const html = await new Promise((resolve, reject) => {
-
-    renderer.renderToString((err, htmlStr) => {
-      if (err) {
-        console.log('err--', err)
-        reject(err)
-      } else {
-        resolve(htmlStr)
-      }
-    });
-  })
+  const html = await renderer.renderToString()
   console.log(html, '-------------')
   ctx.type = 'html'
   ctx.status = 200
