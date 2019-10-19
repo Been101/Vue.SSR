@@ -1,7 +1,7 @@
 const path = require('path')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 module.exports = {
     mode: 'development',
     entry: path.resolve(__dirname, 'index.js'),
@@ -21,15 +21,15 @@ module.exports = {
             },
             {
                 test: /\.css$/,
-                loader: ['vue-style-loader', 'css-loader', 'postcss-loader']
+                loader: ['vue-style-loader', 'css-loader']
             }
         ]
     },
-    plugins:[
+    plugins: [
         new VueLoaderPlugin(),
         new HtmlWebpackPlugin({
             template: path.resolve(__dirname, '../index.html'),
         }),
-        new ExtractTextPlugin("styles.css")
+        new MiniCssExtractPlugin()
     ]
 }
