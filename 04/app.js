@@ -1,15 +1,13 @@
 import Vue from 'vue'
 import App from './App.vue'
-import { createStore } from './store/store';
+import createStore from './store/store';
 
-export function createApp() {
-    const rootData = createStore()
+export default function createApp() {
+    const store = createStore()
     const app = new Vue({
-        data() {
-            return rootData
-        },
+        store,
         render: h => h(App)
     })
 
-    return { app, rootData, App }
+    return { app, store, App }
 }

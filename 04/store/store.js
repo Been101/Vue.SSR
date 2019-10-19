@@ -1,5 +1,5 @@
-import Vue from 'Vue'
-import Vuex from 'Vue'
+import Vue from 'vue'
+import Vuex from 'vuex'
 
 Vue.use(Vuex)
 
@@ -11,7 +11,7 @@ const fetchBar = function () {
   })
 }
 
-export function createStore() {
+export default function createStore() {
   const store = new Vuex.Store({
     state: {
       bar: ''
@@ -24,7 +24,7 @@ export function createStore() {
     },
 
     actions: {
-      fetchBar({ commit }) {
+      async fetchBar({ commit }) {
         return fetchBar().then(data => {
           commit('SET_BAR', data)
         }).catch(err => {
@@ -34,9 +34,12 @@ export function createStore() {
     }
   })
 
+  if (typeof window !== 'undefined' && window.__INITIAL_STATE__) {
+    console.log('window.__INITIAL_STATE__', window.__INITIAL_STATE__);
+    store.replaceState(window.__INITIAL_STATE__);
+  } else {
+    console.log('no browser');
+  }
+
   return store
 }
-
-export default createStore;
-
-typeof window
