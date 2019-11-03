@@ -9,6 +9,7 @@ module.exports = merge(base, {
     server: path.resolve(__dirname, '../entry-server.js')
   },
   output: {
+    // 此处告知 server bundle 使用 Node 风格导出模块(Node-style exports)
     libraryTarget: 'commonjs2'
   },
   plugins: [
