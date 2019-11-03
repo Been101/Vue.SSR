@@ -1,38 +1,33 @@
 <template>
-  <div>
-    Bar component {{msg}}
+  <div class="bar">
+    Bar component
+    <p>{{msg}}</p>
+    <button @click='fetch'>Fetch Data</button>
   </div>
 </template>
 
 <script>
-const rootData = {
-  bar: {
-    name: ""
-  }
-};
-function fetchData() {
-  return new Promise((resolve, reject) => {
-    rootData.bar.name = "fetch data from db";
-    resolve("fetch data from db");
-  });
-}
 export default {
-  asyncData: fetchData,
+  name: "Bar",
   data() {
-    return {};
+    return {
+      msg: ""
+    };
   },
-  mounted() {
-    fetchData().then(res => {
-      rootData.bar.name = res;
-    });
-  },
-  computed: {
-    msg() {
-      return rootData.bar.name;
+  methods: {
+    fetch() {
+      new Promise(() => {
+        setTimeout(() => {
+          this.msg = "fetch from server";
+        }, 1000);
+      });
     }
   }
 };
 </script>
 
-<style>
+<style scoped>
+.bar {
+  background-color: yellow;
+}
 </style>

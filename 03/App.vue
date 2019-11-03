@@ -1,16 +1,15 @@
 <template>
   <div id='app'>
-    <bar />
-    <foo />
+    <router-link to="/foo">Go to Foo</router-link>
+    <router-link to="/bar">Go to Bar</router-link>
+    <hr />
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-import Bar from "./components/Bar.vue";
-import Foo from "./components/Foo.vue";
 export default {
-  name: "",
-  components: { Bar, Foo },
+  name: "App",
   data() {
     return {};
   }

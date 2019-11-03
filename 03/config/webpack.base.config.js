@@ -1,7 +1,6 @@
 const path = require('path')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
-const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 module.exports = {
     mode: 'development',
     output: {
@@ -16,16 +15,22 @@ module.exports = {
             },
             {
                 test: /\.js$/,
-                loader: 'babel-loader'
+                loader: 'babel-loader',
+                options: {//如果有这个设置则不用再添加.babelrc文件进行配置
+                    "babelrc": false,// 不采用.babelrc的配置
+                    "plugins": [
+                        "@babel/plugin-syntax-dynamic-import" // 添加完这个配置之后， 才能动态引入组件
+                    ]
+                }
             },
             {
                 test: /\.css$/,
-                loader: ['vue-style-loader', 'css-loader', 'postcss-loader']
+                loader: ['vue-style-loader', 'css-loader']
             }
         ]
     },
-    plugins:[
+    plugins: [
         new VueLoaderPlugin(),
-        new ExtractTextPlugin("styles.css")
+        new MiniCssExtractPlugin("styles.css")
     ]
 }
