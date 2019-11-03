@@ -16,5 +16,6 @@
 启动项目
 
 npm i
-npm run build 01    // npm run build projectName
+npm run build 01    // 打包vue项目 npm run build projectName
+npm run server 02   // 起一个3000端口的服务
 ```
