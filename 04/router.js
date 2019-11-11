@@ -3,7 +3,7 @@ import Router from 'vue-router'
 
 const routes = [
   { path: '/foo', component: () => import('./components/Foo.vue') },
-  { path: '/bar', component: () => import('./components/Bar.vue') }
+  { path: '/bar/:id', component: () => import('./components/Bar.vue') }
 ]
 
 Vue.use(Router)

@@ -22,7 +22,7 @@ module.exports = merge(base, {
       template: path.resolve(__dirname, '../../index.ssr.html'),
       filename: 'index.ssr.html',
       files: {
-        js: 'client.bundle.js'
+        js: '/client.bundle.js'
       },
       excludeChunks: ['server']
     })
