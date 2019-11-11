@@ -14,5 +14,5 @@ export function createApp() {
         // 根实例简单的渲染应用程序组件。
         render: h => h(App)
     })
-    return { app, router, store }
+    return { app, router, store, App }
 }
