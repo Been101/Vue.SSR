@@ -24,7 +24,7 @@ function execCmd(cmd) {
             console.log(err, stderr)
         } else {
             console.log(stdout)
-            console.log(`build ${cmd} succcess!`)
+            console.log(`build ${cmd} success!`)
         }
     })
 

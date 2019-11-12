@@ -17,7 +17,8 @@ export default context => {
       const matchedComponents = router.getMatchedComponents()
       // 匹配不到的路由，执行 reject 函数，并返回 404
       if (!matchedComponents.length) {
-        return reject({ code: 404 })
+        router.push('/foo')   // 可以加个默认页面， 或者是404页面
+        // return reject({ code: 404 })
       }
 
       Promise.all(matchedComponents.map(component => {
