@@ -11,7 +11,7 @@ const project = argv[2]
 if (project !== '01') {
   let bundle
   if (project === '02') {
-    bundle = fs.readFileSync(path.resolve(__dirname, `./${project}/dist/server.bundle.js`), 'utf-8');
+    bundle = require(`./${project}/dist/server.bundle.js`);
   } else {
     bundle = require(`./${project}/dist/vue-ssr-server-bundle.json`);
   }
